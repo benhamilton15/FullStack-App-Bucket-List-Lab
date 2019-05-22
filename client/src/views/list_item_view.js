@@ -17,9 +17,14 @@ ListItemView.prototype.render = function (listItem) {
   const date = this.createDetail('Date', listItem.date);
   listItemContainer.appendChild(date);
 
+  const completed = this.createDetail('Completed?', listItem.completed);
+  listItemContainer.appendChild(completed);
+
   const deleteButton = this.createDeleteButton(listItem._id);
   listItemContainer.appendChild(deleteButton)
 
+  const completedButton = this.createCompletedButton(listItem._id);
+  listItemContainer.appendChild(completedButton)
 
 
   this.containerElement.appendChild(listItemContainer);
@@ -36,6 +41,17 @@ ListItemView.prototype.createDeleteButton = function (listItemID) {
 
   return button;
 }
+
+ListItemView.prototype.createCompletedButton = function (listItemID) {
+  const completedButton = document.createElement('button');
+  completedButton.classList.add('complete-button');
+  completedButton.textContent = 'Completed'
+  completedButton.value = listItemID
+  completedButton.addEventListener('click', (event) => {
+    PubSub.publish('ListItemView:list-item-completed-clicked', event.target.value)
+  })
+  return completedButton;
+};
 
 ListItemView.prototype.createDetail = function (label, text) {
   const detail = document.createElement('h3');

@@ -7,9 +7,25 @@ body {
 }
 
 h1 {
+  border: 30px solid pink;
+  font-size: 38px;
   color: white;
   background-color: #9C28B1;
   padding: 20px;
+}
+
+h2 {
+  font-size: 30px;
+  text-decoration: underline;
+}
+
+h2:hover {
+  background-color: cyan;
+  color: red;
+}
+
+label {
+  font-size: 25px;
 }
 
 #bucket-list {
@@ -28,10 +44,12 @@ h1 {
   color: white;
 }
 
+
 #bucket-list-form {
-  padding: 10px;
+  text-align: left;
+  padding-left: 43%;
 }
 
 #bucket-list-form div {
-  margin-top: 10px;
+  margin: 10px 0;
 }

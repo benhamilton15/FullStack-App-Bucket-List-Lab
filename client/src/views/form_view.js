@@ -21,7 +21,8 @@ FormView.prototype.getDetails = function (event) {
   const newListItem = {
     task: event.task.value,
     difficulty: event.difficulty.value,
-    date: event.date.value
+    date: event.date.value,
+    completed: false
   }
   return newListItem
 }

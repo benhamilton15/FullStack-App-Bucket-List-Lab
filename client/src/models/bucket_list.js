@@ -37,6 +37,14 @@ BucketList.prototype.deleteListItem = function (listItemID) {
     .catch(console.error);
 }
 
+BucketList.prototype.updateCompletedListItem = function (listItemID) {
+  this.request.put(listItemID)
+    .then((bucketList) => {
+      PubSub.publish('BucketList:data-loaded', bucketList)
+    })
+    .catch(console.error);
+}
+
 
 
 module.exports = BucketList;

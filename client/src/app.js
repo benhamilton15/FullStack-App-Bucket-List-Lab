@@ -5,6 +5,7 @@ const url = 'http://localhost:3000/api/bucket-list';
 
 document.addEventListener('DOMContentLoaded', () => {
 
+
   const bucketListForm = document.querySelector('form#bucket-list-form');
   const bucketListFormView = new FormView(bucketListForm)
   bucketListFormView.bindEvents();
