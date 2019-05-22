@@ -17,7 +17,24 @@ ListItemView.prototype.render = function (listItem) {
   const date = this.createDetail('Date', listItem.date);
   listItemContainer.appendChild(date);
 
+  const deleteButton = this.createDeleteButton(listItem._id);
+  listItemContainer.appendChild(deleteButton)
+
+
+
   this.containerElement.appendChild(listItemContainer);
+}
+
+ListItemView.prototype.createDeleteButton = function (listItemID) {
+  const button = document.createElement('button');
+  button.classList.add('delete-button');
+  button.textContent = 'Delete'
+  button.value = listItemID
+  button.addEventListener('click', (event) => {
+    PubSub.publish('ListItemView:list-item-delete-clicked', event.target.value)
+  })
+
+  return button;
 }
 
 ListItemView.prototype.createDetail = function (label, text) {

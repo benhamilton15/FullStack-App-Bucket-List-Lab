@@ -7,8 +7,14 @@ RequestHelper.prototype.get = function () {
     .then((response) => response.json());
 };
 
+RequestHelper.prototype.delete = function (id) {
+  return fetch(`${this.url}/${id}`, {
+    method: 'DELETE'
+  })
+    .then((response) => response.json())
+}
+
 RequestHelper.prototype.post = function (payload) {
-  debugger;
   return fetch(this.url, {
     method: 'POST',
     body: JSON.stringify(payload),

@@ -15,6 +15,10 @@ BucketList.prototype.bindEvents = function () {
       .catch(console.error);
   })
 
+  PubSub.subscribe('ListItemView:list-item-delete-clicked', (event) => {
+    this.deleteListItem(event.detail);
+  })
+
 }
 
 BucketList.prototype.getData = function () {
@@ -24,6 +28,14 @@ BucketList.prototype.getData = function () {
     })
     .catch(console.error);
 };
+
+BucketList.prototype.deleteListItem = function (listItemID) {
+  this.request.delete(listItemID)
+    .then((bucketList) => {
+      PubSub.publish('BucketList:data-loaded', bucketList)
+    })
+    .catch(console.error);
+}
 
 
 
