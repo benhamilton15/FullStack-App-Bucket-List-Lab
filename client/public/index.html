@@ -7,10 +7,35 @@
     <script src="./js/bundle.js"></script>
   </head>
   <body>
-    <head>
+    <header>
       <h1>BUCKET LIST: YOLO</h1>
-    </head>
+    </header>
+    <form id="bucket-list-form">
+      <div>
+        <label for="task">Task:</label>
+        <input type="text" id="task">
+      </div>
+      <div>
+        <label for="difficulty">Difficulty:</label>
+        <select id="difficulty">
+          <option selected disabled></option>
+          <option value="low">low</option>
+          <option value="medium">medium</option>
+          <option value="high">high</option>
+        </select>
+      </div>
+      <div>
+        <label for="date">Date:</label>
+        <input type="date" id="date">
+      </div>
+
+      <input type="submit" id ="save" value="Save">
+    </form>
     <ul id="bucket-list">
     </ul>
+
+    <header>
+      <h2>Bucket List:</h2>
+    </header>
   </body>
 </html>
