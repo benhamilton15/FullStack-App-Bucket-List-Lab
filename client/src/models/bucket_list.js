@@ -6,12 +6,16 @@ const BucketList = function (url) {
   this.request = new RequestHelper(this.url);
 }
 
-// BucketList.prototype.bindEvents = function () {
-//   PubSub.subscribe('FormView:submission', (event) => {
-//     this.
-//   })
-//
-// }
+BucketList.prototype.bindEvents = function () {
+  PubSub.subscribe('FormView:New-list-item', (event) => {
+    this.request.post(event.detail)
+      .then((bucketList) => {
+        PubSub.publish('BucketList:data-loaded', bucketList)
+      })
+      .catch(console.error);
+  })
+
+}
 
 BucketList.prototype.getData = function () {
   this.request.get()
