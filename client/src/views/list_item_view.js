@@ -11,6 +11,12 @@ ListItemView.prototype.render = function (listItem) {
   const task = this.createDetail('Task', listItem.task);
   listItemContainer.appendChild(task);
 
+  const difficulty = this.createDetail('Difficulty', listItem.difficulty);
+  listItemContainer.appendChild(difficulty);
+
+  const date = this.createDetail('Date', listItem.date);
+  listItemContainer.appendChild(date);
+
   this.containerElement.appendChild(listItemContainer);
 }
 
