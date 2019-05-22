@@ -6,7 +6,8 @@ const createRouter = function (collection) {
 
   router.get('/', (req, res) => {
     collection
-      .then(.find().toArray())
+      .find()
+      .toArray()
       .then(docs => res.json(docs))
       .catch(err => {
         console.error(err);
