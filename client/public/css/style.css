@@ -1,0 +1,37 @@
+body {
+  margin: 50px 0 100px 0;
+  font-family: Futura, sans-serif;
+  background-color: #F7BB5E;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  background-color: #9C28B1;
+  padding: 20px;
+}
+
+#bucket-list {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#list-item-container {
+  min-width: 500px;
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid;
+  background-color: #2196F3;
+  color: white;
+}
+
+#bucket-list-form {
+  padding: 10px;
+}
+
+#bucket-list-form div {
+  margin-top: 10px;
+}
